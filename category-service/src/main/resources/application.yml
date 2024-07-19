@@ -1,13 +1,22 @@
 spring:
   application:
     name: category-service
-  data:
-    mongodb:
-      host: 127.0.0.1
-      port: 27017
-      authentication-database: admin
-      database: eureka
-      auto-index-creation: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/eureka-shop
+    username: admin
+    password: admin
+    hikari:
+      allow-pool-suspension: true
+    jpa:
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQLDialect
+          format_sql: true
+      show-sql: true
+      database: mysql
+      database-platform: org.hibernate.dialect.MySQLDialect
 
 server:
   port: 8081
